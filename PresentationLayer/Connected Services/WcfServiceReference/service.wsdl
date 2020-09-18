@@ -13,16 +13,35 @@
   <wsdl:message name="IWcfService_GetCompanies_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
   </wsdl:message>
+  <wsdl:message name="IWcfService_Receive_InputMessage">
+    <wsdl:part name="parameters" element="tns:Receive" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_Receive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWcfService">
     <wsdl:operation name="GetCompanies">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompanies" message="tns:IWcfService_GetCompanies_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesResponse" message="tns:IWcfService_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Receive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Receive" message="tns:IWcfService_Receive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ReceiveResponse" message="tns:IWcfService_Receive_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWcfService" type="tns:IWcfService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCompanies">
       <soap:operation soapAction="http://tempuri.org/IWcfService/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Receive">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/Receive" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

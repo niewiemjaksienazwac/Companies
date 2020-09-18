@@ -147,6 +147,12 @@ namespace PresentationLayer.WcfServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompanies", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesResponse")]
         System.Threading.Tasks.Task<PresentationLayer.WcfServiceReference.CompanyModel[]> GetCompaniesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
+        void Receive(PresentationLayer.WcfServiceReference.CompanyModel company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
+        System.Threading.Tasks.Task ReceiveAsync(PresentationLayer.WcfServiceReference.CompanyModel company);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,6 +188,14 @@ namespace PresentationLayer.WcfServiceReference {
         
         public System.Threading.Tasks.Task<PresentationLayer.WcfServiceReference.CompanyModel[]> GetCompaniesAsync() {
             return base.Channel.GetCompaniesAsync();
+        }
+        
+        public void Receive(PresentationLayer.WcfServiceReference.CompanyModel company) {
+            base.Channel.Receive(company);
+        }
+        
+        public System.Threading.Tasks.Task ReceiveAsync(PresentationLayer.WcfServiceReference.CompanyModel company) {
+            return base.Channel.ReceiveAsync(company);
         }
     }
 }

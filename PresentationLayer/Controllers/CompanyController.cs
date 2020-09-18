@@ -26,5 +26,18 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(WcfServiceReference.CompanyModel company)
+        {
+            if (_wcfService == null)
+            {
+                _wcfService = new WcfServiceReference.WcfServiceClient();
+            }
+
+            _wcfService.Receive(company);
+
+            return RedirectToAction("Index");
+        }
     }
 }

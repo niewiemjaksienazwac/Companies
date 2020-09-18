@@ -34,6 +34,11 @@ namespace ServicesLayer
             return companies.ToList();
         }
 
+        public void Receive(CompanyModel company)
+        {
+
+        }
+
         //public string GetData(int value)
         //{
         //    return string.Format("You entered: {0}", value);
