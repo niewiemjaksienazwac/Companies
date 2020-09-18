@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ServicesLayer.Services
 {
     public class CompanyService
-    {
+    {     
         public IEnumerable<CompanyModel> Map(IList<CompanyDto> companyDtos)
         {
             foreach(var from in companyDtos)

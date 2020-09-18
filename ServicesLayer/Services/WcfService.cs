@@ -1,6 +1,7 @@
 ﻿using DataObjectLayer.DataTransferObjects;
 using PresentationLayer.Models;
 using ServicesLayer.Services;
+using ServicesLayer.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace ServicesLayer
 
         public List<CompanyModel> GetCompanies()
         {
-            //get company DTOs
             var companyList = new List<CompanyDto>
             {
                 new CompanyDto() {Id = "1", InternetAddress = "www1", Name = "companny1", NipNumber = "123213", PhoneNumber = "+11", PhysicalAddress = "address1"},
@@ -36,6 +36,8 @@ namespace ServicesLayer
 
         public void Receive(CompanyModel company)
         {
+            //validation
+            var isValid = CompanyValidator.Validate(company);
 
         }
 
@@ -48,7 +50,7 @@ namespace ServicesLayer
         //{
         //    if (composite == null)
         //    {
-        //        throw new ArgumentNullException("composite");
+        //        throw new ArgumentNullException("composite");s
         //    }
         //    if (composite.BoolValue)
         //    {
