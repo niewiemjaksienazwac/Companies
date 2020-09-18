@@ -10,7 +10,6 @@ namespace PresentationLayer.Controllers
     public class CompanyController : Controller
     {
         WcfServiceReference.WcfServiceClient _wcfService;        
-        // GET: Company
         public ActionResult Index()
         {
             if(_wcfService == null)
