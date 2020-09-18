@@ -5,18 +5,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Wcf = PresentationLayer.WcfServiceReference.WcfServiceClient;
 
 namespace PresentationLayer.Controllers
 {
     public class CompanyController : Controller
     {
-        WcfServiceReference.WcfServiceClient _wcfService;        
+        Wcf _wcfService;
+
+        public CompanyController(Wcf wcfService)
+        {
+            _wcfService = wcfService;
+        }
+
         public ActionResult Index()
         {
-            if(_wcfService == null)
-            {
-                _wcfService = new WcfServiceReference.WcfServiceClient();
-            }
+            //if(_wcfService == null)
+            //{
+            //    _wcfService = new WcfServiceReference.WcfServiceClient();
+            //}
 
             var companies = _wcfService.GetCompanies();            
 
@@ -31,10 +38,10 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public ActionResult Create(WcfServiceReference.CompanyModel company)
         {
-            if (_wcfService == null)
-            {
-                _wcfService = new WcfServiceReference.WcfServiceClient();
-            }
+            //if (_wcfService == null)
+            //{
+            //    _wcfService = new WcfServiceReference.WcfServiceClient();
+            //}
 
             _wcfService.Receive(company);
 
