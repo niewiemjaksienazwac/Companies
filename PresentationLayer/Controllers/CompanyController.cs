@@ -21,5 +21,10 @@ namespace PresentationLayer.Controllers
 
             return View(companies);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
