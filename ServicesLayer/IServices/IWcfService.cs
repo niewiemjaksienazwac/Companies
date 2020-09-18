@@ -26,6 +26,10 @@ namespace ServicesLayer
 
         [OperationContract]
         public void Receive(CompanyModel company);
+
+        //[OperationContract]
+        //public void Receive(string companyJson);
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

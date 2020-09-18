@@ -37,7 +37,14 @@ namespace ServicesLayer
         public void Receive(CompanyModel company)
         {
             //validation
-            var isValid = CompanyValidator.Validate(company);
+            //var isValid = CompanyValidator.Validate(company);
+
+        }
+
+        public void Receive(string companyJson)
+        {
+            //validation
+            
 
         }
 

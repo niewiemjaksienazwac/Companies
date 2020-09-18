@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Models;
+﻿using Newtonsoft.Json;
+using PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,10 @@ namespace PresentationLayer.Controllers
             }
 
             _wcfService.Receive(company);
+
+            var companyJson = JsonConvert.SerializeObject(company);
+
+            var deserialized = JsonConvert.DeserializeObject<CompanyModel>(companyJson);
 
             return RedirectToAction("Index");
         }

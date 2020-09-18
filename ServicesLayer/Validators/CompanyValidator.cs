@@ -14,11 +14,6 @@ namespace ServicesLayer.Validators
         {
             return new CompanyValidationResponse();
         }
-
-        internal static object Validate(PresentationLayer.Models.CompanyModel company)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class CompanyValidationResponse
