@@ -156,12 +156,6 @@
   <ItemGroup>
     <None Include="Connected Services\WcfServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\WcfServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\WcfServiceReference\PresentationLayer.Models.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\WcfServiceReference\PresentationLayer.WcfServiceReference.CompanyModel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\WcfServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

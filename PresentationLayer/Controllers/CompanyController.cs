@@ -3,6 +3,7 @@ using PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 using Wcf = PresentationLayer.WcfServiceReference.WcfServiceClient;
@@ -20,8 +21,6 @@ namespace PresentationLayer.Controllers
 
         public ActionResult Index()
         {
-            //var companies = _wcfService.GetCompanies();
-
             var companiesJson = _wcfService.GetCompaniesJson();
 
             var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(companiesJson);
@@ -37,14 +36,16 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public ActionResult Create(CompanyModel company)
         {
-
             var companyJson = JsonConvert.SerializeObject(company);
 
-            var deserialized = JsonConvert.DeserializeObject<CompanyModel>(companyJson);
+            var validationMessage = _wcfService.ValidateCompany(companyJson);
 
-            _wcfService.Receive(companyJson);
-
-            return RedirectToAction("Index");
+            if (string.IsNullOrEmpty(validationMessage))
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.Message = validationMessage;
+            return View(company);
         }
     }
 }

@@ -9,144 +9,11 @@
 //------------------------------------------------------------------------------
 
 namespace PresentationLayer.WcfServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompanyModel", Namespace="http://schemas.datacontract.org/2004/07/PresentationLayer.Models")]
-    [System.SerializableAttribute()]
-    public partial class CompanyModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyInternetAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyNipNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyPhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyPhysicalAddressField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyId {
-            get {
-                return this.CompanyIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyIdField, value) != true)) {
-                    this.CompanyIdField = value;
-                    this.RaisePropertyChanged("CompanyId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyInternetAddress {
-            get {
-                return this.CompanyInternetAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyInternetAddressField, value) != true)) {
-                    this.CompanyInternetAddressField = value;
-                    this.RaisePropertyChanged("CompanyInternetAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyName {
-            get {
-                return this.CompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
-                    this.CompanyNameField = value;
-                    this.RaisePropertyChanged("CompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyNipNumber {
-            get {
-                return this.CompanyNipNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyNipNumberField, value) != true)) {
-                    this.CompanyNipNumberField = value;
-                    this.RaisePropertyChanged("CompanyNipNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyPhoneNumber {
-            get {
-                return this.CompanyPhoneNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyPhoneNumberField, value) != true)) {
-                    this.CompanyPhoneNumberField = value;
-                    this.RaisePropertyChanged("CompanyPhoneNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyPhysicalAddress {
-            get {
-                return this.CompanyPhysicalAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyPhysicalAddressField, value) != true)) {
-                    this.CompanyPhysicalAddressField = value;
-                    this.RaisePropertyChanged("CompanyPhysicalAddress");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServiceReference.IWcfService")]
     public interface IWcfService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompanies", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesResponse")]
-        PresentationLayer.WcfServiceReference.CompanyModel[] GetCompanies();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompanies", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesResponse")]
-        System.Threading.Tasks.Task<PresentationLayer.WcfServiceReference.CompanyModel[]> GetCompaniesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
         string GetCompaniesJson();
@@ -154,11 +21,11 @@ namespace PresentationLayer.WcfServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
         System.Threading.Tasks.Task<string> GetCompaniesJsonAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
-        void Receive(string json);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/ValidateCompany", ReplyAction="http://tempuri.org/IWcfService/ValidateCompanyResponse")]
+        string ValidateCompany(string companyJson);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
-        System.Threading.Tasks.Task ReceiveAsync(string json);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/ValidateCompany", ReplyAction="http://tempuri.org/IWcfService/ValidateCompanyResponse")]
+        System.Threading.Tasks.Task<string> ValidateCompanyAsync(string companyJson);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -188,14 +55,6 @@ namespace PresentationLayer.WcfServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public PresentationLayer.WcfServiceReference.CompanyModel[] GetCompanies() {
-            return base.Channel.GetCompanies();
-        }
-        
-        public System.Threading.Tasks.Task<PresentationLayer.WcfServiceReference.CompanyModel[]> GetCompaniesAsync() {
-            return base.Channel.GetCompaniesAsync();
-        }
-        
         public string GetCompaniesJson() {
             return base.Channel.GetCompaniesJson();
         }
@@ -204,12 +63,12 @@ namespace PresentationLayer.WcfServiceReference {
             return base.Channel.GetCompaniesJsonAsync();
         }
         
-        public void Receive(string json) {
-            base.Channel.Receive(json);
+        public string ValidateCompany(string companyJson) {
+            return base.Channel.ValidateCompany(companyJson);
         }
         
-        public System.Threading.Tasks.Task ReceiveAsync(string json) {
-            return base.Channel.ReceiveAsync(json);
+        public System.Threading.Tasks.Task<string> ValidateCompanyAsync(string companyJson) {
+            return base.Channel.ValidateCompanyAsync(companyJson);
         }
     }
 }

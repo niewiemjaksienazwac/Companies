@@ -4,52 +4,32 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PresentationLayer.Models" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IWcfService_GetCompanies_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCompanies" />
-  </wsdl:message>
-  <wsdl:message name="IWcfService_GetCompanies_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
-  </wsdl:message>
   <wsdl:message name="IWcfService_GetCompaniesJson_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCompaniesJson" />
   </wsdl:message>
   <wsdl:message name="IWcfService_GetCompaniesJson_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCompaniesJsonResponse" />
   </wsdl:message>
-  <wsdl:message name="IWcfService_Receive_InputMessage">
-    <wsdl:part name="parameters" element="tns:Receive" />
+  <wsdl:message name="IWcfService_ValidateCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCompany" />
   </wsdl:message>
-  <wsdl:message name="IWcfService_Receive_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReceiveResponse" />
+  <wsdl:message name="IWcfService_ValidateCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCompanyResponse" />
   </wsdl:message>
   <wsdl:portType name="IWcfService">
-    <wsdl:operation name="GetCompanies">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompanies" message="tns:IWcfService_GetCompanies_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesResponse" message="tns:IWcfService_GetCompanies_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCompaniesJson">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesJson" message="tns:IWcfService_GetCompaniesJson_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesJsonResponse" message="tns:IWcfService_GetCompaniesJson_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Receive">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Receive" message="tns:IWcfService_Receive_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ReceiveResponse" message="tns:IWcfService_Receive_OutputMessage" />
+    <wsdl:operation name="ValidateCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/ValidateCompany" message="tns:IWcfService_ValidateCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ValidateCompanyResponse" message="tns:IWcfService_ValidateCompany_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWcfService" type="tns:IWcfService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCompanies">
-      <soap:operation soapAction="http://tempuri.org/IWcfService/GetCompanies" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetCompaniesJson">
       <soap:operation soapAction="http://tempuri.org/IWcfService/GetCompaniesJson" style="document" />
       <wsdl:input>
@@ -59,8 +39,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Receive">
-      <soap:operation soapAction="http://tempuri.org/IWcfService/Receive" style="document" />
+    <wsdl:operation name="ValidateCompany">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/ValidateCompany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

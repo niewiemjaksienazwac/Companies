@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 
 namespace Repository
 {
-    public class RepositoryClass
+    public static class RepositoryClass
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\achas\Documents\CompaniesDB.mdf;Integrated Security=True;Connect Timeout=30");
+        static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\achas\Documents\CompaniesDB.mdf;Integrated Security=True;Connect Timeout=30");
 
-
-        public string DoStuff(string json)
+        public static string AddCompany(CompanyEntity companyEntity)
         {
-            var companyEntity = JsonConvert.DeserializeObject<CompanyEntity>(json); // would be replaced with some actual logic
-
             try
             {
                 SqlCommand command = new SqlCommand("Company_Add", connection);
@@ -43,7 +41,7 @@ namespace Repository
             }
         }
 
-        public List<CompanyEntity> GetAllCompanies()
+        public static List<CompanyEntity> GetAllCompanies()
         {
             try
             {

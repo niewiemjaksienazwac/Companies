@@ -25,7 +25,6 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="20d51f62-c017-487c-8a6f-7881d97a2b70" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServicesLayer/Service1/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7585066f-1d18-4c88-aea1-76ec04487ae6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServicesLayer/Service1/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0a09fea4-80c1-4914-ae17-51879ecf9b9c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServicesLayer/Service1/mex" />
-    <MetadataFile FileName="PresentationLayer.Models.xsd" MetadataType="Schema" ID="e5851306-d22d-484d-aae6-7b4ea140c19f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServicesLayer/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
