@@ -18,6 +18,12 @@
   <wsdl:message name="IWcfService_ValidateCompany_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidateCompanyResponse" />
   </wsdl:message>
+  <wsdl:message name="IWcfService_SaveCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompany" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_SaveCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompanyResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWcfService">
     <wsdl:operation name="GetCompaniesJson">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesJson" message="tns:IWcfService_GetCompaniesJson_InputMessage" />
@@ -26,6 +32,10 @@
     <wsdl:operation name="ValidateCompany">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/ValidateCompany" message="tns:IWcfService_ValidateCompany_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ValidateCompanyResponse" message="tns:IWcfService_ValidateCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/SaveCompany" message="tns:IWcfService_SaveCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/SaveCompanyResponse" message="tns:IWcfService_SaveCompany_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWcfService" type="tns:IWcfService">
@@ -41,6 +51,15 @@
     </wsdl:operation>
     <wsdl:operation name="ValidateCompany">
       <soap:operation soapAction="http://tempuri.org/IWcfService/ValidateCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompany">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/SaveCompany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

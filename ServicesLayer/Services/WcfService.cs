@@ -16,27 +16,28 @@ namespace ServicesLayer
         public string GetCompaniesJson()
         {
             var existingCompanies = RepositoryClass.GetAllCompanies();
-            string existingCompaniesJson = JsonConvert.SerializeObject(existingCompanies);
 
-            return existingCompaniesJson;
+            return JsonConvert.SerializeObject(existingCompanies);
         }
 
         public string ValidateCompany(string companyJson)
         {           
-            var newCompany = JsonConvert.DeserializeObject<CompanyEntity>(companyJson); // would be replaced with some actual logic
-
+            var newCompany = JsonConvert.DeserializeObject<CompanyEntity>(companyJson); 
             var companyValidation = CompanyValidator.Validate(newCompany, RepositoryClass.GetAllCompanies());
-            if (companyValidation.isValid)
-            {
-                newCompany.Id = Guid.NewGuid().ToString();
-                RepositoryClass.AddCompany(newCompany);
-            }
-            else
-            {
-                return string.Join(" ", companyValidation.ValidationMessages);
-            }
 
-            return string.Empty;
+            return JsonConvert.SerializeObject(companyValidation);
+        }
+
+        public void SaveCompany(string companyJson)
+        {
+            var newCompany = JsonConvert.DeserializeObject<CompanyEntity>(companyJson);
+            AssignEntityId(ref newCompany);            
+            RepositoryClass.AddCompany(newCompany);
+        }
+
+        private void AssignEntityId(ref CompanyEntity newCompany)
+        {
+            newCompany.Id = Guid.NewGuid().ToString();
         }
     }
 }

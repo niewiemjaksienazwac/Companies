@@ -46,24 +46,19 @@ namespace Repository
             try
             {
                 SqlCommand command = new SqlCommand("Company_GetAll", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                                
+                command.CommandType = CommandType.StoredProcedure;   
+                
                 connection.Open();
-
                 SqlDataReader reader = command.ExecuteReader();
-
-                var myList = new List<CompanyEntity>();
-
+                var entities = new List<CompanyEntity>();
                 while (reader.Read())
                 {
-
                     var record = new CompanyEntity(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
-                    myList.Add(record);
+                    entities.Add(record);
                 }
-
                 connection.Close();
 
-                return myList;
+                return entities;
             }
             catch (Exception)
             {

@@ -16,5 +16,8 @@ namespace ServicesLayer
 
         [OperationContract]
         public string ValidateCompany(string companyJson);
+
+        [OperationContract]
+        public void SaveCompany(string companyJson);
     }
 }

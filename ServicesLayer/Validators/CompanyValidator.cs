@@ -18,6 +18,7 @@ namespace ServicesLayer.Validators
             ValidateNullOrEmptyFields(ref companyValidation, newCompany);
             //ValidateNip(newCompany);
             //ValidatePhoneNumber(newCompany); // some crazy regex
+            // some more fancy validations
             ValidateForDuplicates(ref companyValidation, newCompany, existingCompanies);
 
             return companyValidation;
@@ -57,7 +58,7 @@ namespace ServicesLayer.Validators
             if (IsNullOrEmpty(newCompany.Www))
             {
                 companyValidation.isValid = false;
-                companyValidation.ValidationMessages.Add("field 'Www' is required!");
+                companyValidation.ValidationMessages.Add("field 'Internet Domain' is required!");
             }
             if (IsNullOrEmpty(newCompany.Nip))
             {
@@ -67,7 +68,7 @@ namespace ServicesLayer.Validators
             if (IsNullOrEmpty(newCompany.Phone))
             {
                 companyValidation.isValid = false;
-                companyValidation.ValidationMessages.Add("field 'Phone' is required!");
+                companyValidation.ValidationMessages.Add("field 'Phone Number' is required!");
             }
         }
 

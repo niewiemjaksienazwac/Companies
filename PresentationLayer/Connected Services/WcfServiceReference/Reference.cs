@@ -26,6 +26,12 @@ namespace PresentationLayer.WcfServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/ValidateCompany", ReplyAction="http://tempuri.org/IWcfService/ValidateCompanyResponse")]
         System.Threading.Tasks.Task<string> ValidateCompanyAsync(string companyJson);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/SaveCompany", ReplyAction="http://tempuri.org/IWcfService/SaveCompanyResponse")]
+        void SaveCompany(string companyJson);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/SaveCompany", ReplyAction="http://tempuri.org/IWcfService/SaveCompanyResponse")]
+        System.Threading.Tasks.Task SaveCompanyAsync(string companyJson);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace PresentationLayer.WcfServiceReference {
         
         public System.Threading.Tasks.Task<string> ValidateCompanyAsync(string companyJson) {
             return base.Channel.ValidateCompanyAsync(companyJson);
+        }
+        
+        public void SaveCompany(string companyJson) {
+            base.Channel.SaveCompany(companyJson);
+        }
+        
+        public System.Threading.Tasks.Task SaveCompanyAsync(string companyJson) {
+            return base.Channel.SaveCompanyAsync(companyJson);
         }
     }
 }

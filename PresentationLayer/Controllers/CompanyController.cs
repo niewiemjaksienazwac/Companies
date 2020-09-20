@@ -20,10 +20,8 @@ namespace PresentationLayer.Controllers
         }
 
         public ActionResult Index()
-        {
-            var companiesJson = _wcfService.GetCompaniesJson();
-
-            var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(companiesJson);
+        {           
+            var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(_wcfService.GetCompaniesJson());
 
             return View(companies);
         }
@@ -37,14 +35,16 @@ namespace PresentationLayer.Controllers
         public ActionResult Create(CompanyModel company)
         {
             var companyJson = JsonConvert.SerializeObject(company);
+            var validationMessage = JsonConvert.DeserializeObject<ValidationModel>(_wcfService.ValidateCompany(companyJson));
+            TempData["showSaveButton"] = validationMessage.isValid;
 
-            var validationMessage = _wcfService.ValidateCompany(companyJson);
-
-            if (string.IsNullOrEmpty(validationMessage))
+            if (validationMessage.isValid && Request.Form["Save"] != null)
             {
+                _wcfService.SaveCompany(companyJson);
+
                 return RedirectToAction("Index");
             }
-            ViewBag.Message = validationMessage;
+            ViewBag.Message = string.Join(" ", validationMessage.ValidationMessages);
             return View(company);
         }
     }
