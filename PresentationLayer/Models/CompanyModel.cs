@@ -7,11 +7,11 @@ namespace PresentationLayer.Models
 {
     public class CompanyModel
     {
-        public string CompanyId { get; set; }
-        public string CompanyName { get; set; }
-        public string CompanyPhysicalAddress { get; set; }
-        public string CompanyInternetAddress { get; set; }
-        public string CompanyNipNumber { get; set; }
-        public string CompanyPhoneNumber { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Www { get; set; }
+        public string Nip { get; set; }
+        public string Phone { get; set; }
     }
 }

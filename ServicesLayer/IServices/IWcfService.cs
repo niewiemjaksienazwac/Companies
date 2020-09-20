@@ -21,11 +21,14 @@ namespace ServicesLayer
 
         // TODO: Add your service operations here
 
-        [OperationContract]
-        public List<CompanyModel> GetCompanies();
+        //[OperationContract]
+        //public List<CompanyModel> GetCompanies();
 
         [OperationContract]
-        public void Receive(CompanyModel company);
+        public string GetCompaniesJson();
+
+        [OperationContract]
+        public void Receive(string json);
 
         //[OperationContract]
         //public void Receive(string companyJson);

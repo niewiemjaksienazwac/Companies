@@ -148,11 +148,17 @@ namespace PresentationLayer.WcfServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompanies", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesResponse")]
         System.Threading.Tasks.Task<PresentationLayer.WcfServiceReference.CompanyModel[]> GetCompaniesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
-        void Receive(PresentationLayer.WcfServiceReference.CompanyModel company);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
+        string GetCompaniesJson();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
+        System.Threading.Tasks.Task<string> GetCompaniesJsonAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
-        System.Threading.Tasks.Task ReceiveAsync(PresentationLayer.WcfServiceReference.CompanyModel company);
+        void Receive(string json);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/Receive", ReplyAction="http://tempuri.org/IWcfService/ReceiveResponse")]
+        System.Threading.Tasks.Task ReceiveAsync(string json);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -190,12 +196,20 @@ namespace PresentationLayer.WcfServiceReference {
             return base.Channel.GetCompaniesAsync();
         }
         
-        public void Receive(PresentationLayer.WcfServiceReference.CompanyModel company) {
-            base.Channel.Receive(company);
+        public string GetCompaniesJson() {
+            return base.Channel.GetCompaniesJson();
         }
         
-        public System.Threading.Tasks.Task ReceiveAsync(PresentationLayer.WcfServiceReference.CompanyModel company) {
-            return base.Channel.ReceiveAsync(company);
+        public System.Threading.Tasks.Task<string> GetCompaniesJsonAsync() {
+            return base.Channel.GetCompaniesJsonAsync();
+        }
+        
+        public void Receive(string json) {
+            base.Channel.Receive(json);
+        }
+        
+        public System.Threading.Tasks.Task ReceiveAsync(string json) {
+            return base.Channel.ReceiveAsync(json);
         }
     }
 }

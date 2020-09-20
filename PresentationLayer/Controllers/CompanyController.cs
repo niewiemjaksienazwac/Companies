@@ -20,12 +20,11 @@ namespace PresentationLayer.Controllers
 
         public ActionResult Index()
         {
-            //if(_wcfService == null)
-            //{
-            //    _wcfService = new WcfServiceReference.WcfServiceClient();
-            //}
+            //var companies = _wcfService.GetCompanies();
 
-            var companies = _wcfService.GetCompanies();            
+            var companiesJson = _wcfService.GetCompaniesJson();
+
+            var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(companiesJson);
 
             return View(companies);
         }
@@ -36,18 +35,14 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(WcfServiceReference.CompanyModel company)
+        public ActionResult Create(CompanyModel company)
         {
-            //if (_wcfService == null)
-            //{
-            //    _wcfService = new WcfServiceReference.WcfServiceClient();
-            //}
-
-            _wcfService.Receive(company);
 
             var companyJson = JsonConvert.SerializeObject(company);
 
             var deserialized = JsonConvert.DeserializeObject<CompanyModel>(companyJson);
+
+            _wcfService.Receive(companyJson);
 
             return RedirectToAction("Index");
         }

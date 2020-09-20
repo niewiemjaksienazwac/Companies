@@ -13,6 +13,12 @@
   <wsdl:message name="IWcfService_GetCompanies_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
   </wsdl:message>
+  <wsdl:message name="IWcfService_GetCompaniesJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesJson" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetCompaniesJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesJsonResponse" />
+  </wsdl:message>
   <wsdl:message name="IWcfService_Receive_InputMessage">
     <wsdl:part name="parameters" element="tns:Receive" />
   </wsdl:message>
@@ -24,6 +30,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompanies" message="tns:IWcfService_GetCompanies_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesResponse" message="tns:IWcfService_GetCompanies_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCompaniesJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesJson" message="tns:IWcfService_GetCompaniesJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetCompaniesJsonResponse" message="tns:IWcfService_GetCompaniesJson_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Receive">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/Receive" message="tns:IWcfService_Receive_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ReceiveResponse" message="tns:IWcfService_Receive_OutputMessage" />
@@ -33,6 +43,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCompanies">
       <soap:operation soapAction="http://tempuri.org/IWcfService/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesJson">
+      <soap:operation soapAction="http://tempuri.org/IWcfService/GetCompaniesJson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

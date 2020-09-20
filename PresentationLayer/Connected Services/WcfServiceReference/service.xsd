@@ -13,10 +13,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCompaniesJson">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompaniesJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCompaniesJsonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Receive">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PresentationLayer.Models" minOccurs="0" name="company" nillable="true" type="q2:CompanyModel" />
+        <xs:element minOccurs="0" name="json" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
