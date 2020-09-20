@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Repository
 {
-    public static class RepositoryClass
+    public static class Repository
     {
         static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\achas\Documents\CompaniesDB.mdf;Integrated Security=True;Connect Timeout=30");
 

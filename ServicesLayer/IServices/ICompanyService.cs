@@ -9,7 +9,7 @@ using System.Text;
 namespace ServicesLayer
 {
     [ServiceContract]
-    public interface IWcfService
+    public interface ICompanyService
     {
         [OperationContract]
         public string GetCompaniesJson();

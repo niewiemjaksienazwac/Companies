@@ -12,52 +12,52 @@ namespace PresentationLayer.WcfServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServiceReference.IWcfService")]
-    public interface IWcfService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServiceReference.ICompanyService")]
+    public interface ICompanyService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompaniesJson", ReplyAction="http://tempuri.org/ICompanyService/GetCompaniesJsonResponse")]
         string GetCompaniesJson();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCompaniesJson", ReplyAction="http://tempuri.org/IWcfService/GetCompaniesJsonResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompaniesJson", ReplyAction="http://tempuri.org/ICompanyService/GetCompaniesJsonResponse")]
         System.Threading.Tasks.Task<string> GetCompaniesJsonAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/ValidateCompany", ReplyAction="http://tempuri.org/IWcfService/ValidateCompanyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/ValidateCompany", ReplyAction="http://tempuri.org/ICompanyService/ValidateCompanyResponse")]
         string ValidateCompany(string companyJson);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/ValidateCompany", ReplyAction="http://tempuri.org/IWcfService/ValidateCompanyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/ValidateCompany", ReplyAction="http://tempuri.org/ICompanyService/ValidateCompanyResponse")]
         System.Threading.Tasks.Task<string> ValidateCompanyAsync(string companyJson);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/SaveCompany", ReplyAction="http://tempuri.org/IWcfService/SaveCompanyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/SaveCompany", ReplyAction="http://tempuri.org/ICompanyService/SaveCompanyResponse")]
         void SaveCompany(string companyJson);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/SaveCompany", ReplyAction="http://tempuri.org/IWcfService/SaveCompanyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/SaveCompany", ReplyAction="http://tempuri.org/ICompanyService/SaveCompanyResponse")]
         System.Threading.Tasks.Task SaveCompanyAsync(string companyJson);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IWcfServiceChannel : PresentationLayer.WcfServiceReference.IWcfService, System.ServiceModel.IClientChannel {
+    public interface ICompanyServiceChannel : PresentationLayer.WcfServiceReference.ICompanyService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WcfServiceClient : System.ServiceModel.ClientBase<PresentationLayer.WcfServiceReference.IWcfService>, PresentationLayer.WcfServiceReference.IWcfService {
+    public partial class CompanyServiceClient : System.ServiceModel.ClientBase<PresentationLayer.WcfServiceReference.ICompanyService>, PresentationLayer.WcfServiceReference.ICompanyService {
         
-        public WcfServiceClient() {
+        public CompanyServiceClient() {
         }
         
-        public WcfServiceClient(string endpointConfigurationName) : 
+        public CompanyServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public WcfServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public CompanyServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WcfServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CompanyServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WcfServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CompanyServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

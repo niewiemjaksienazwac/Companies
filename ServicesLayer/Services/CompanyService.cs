@@ -11,11 +11,11 @@ using System.Text;
 
 namespace ServicesLayer
 {
-    public class WcfService : IWcfService
+    public class CompanyService : ICompanyService
     {
         public string GetCompaniesJson()
         {
-            var existingCompanies = RepositoryClass.GetAllCompanies();
+            var existingCompanies = Repository.Repository.GetAllCompanies();
 
             return JsonConvert.SerializeObject(existingCompanies);
         }
@@ -23,7 +23,7 @@ namespace ServicesLayer
         public string ValidateCompany(string companyJson)
         {           
             var newCompany = JsonConvert.DeserializeObject<CompanyEntity>(companyJson); 
-            var companyValidation = CompanyValidator.Validate(newCompany, RepositoryClass.GetAllCompanies());
+            var companyValidation = CompanyValidator.Validate(newCompany, Repository.Repository.GetAllCompanies());
 
             return JsonConvert.SerializeObject(companyValidation);
         }
@@ -31,8 +31,8 @@ namespace ServicesLayer
         public void SaveCompany(string companyJson)
         {
             var newCompany = JsonConvert.DeserializeObject<CompanyEntity>(companyJson);
-            AssignEntityId(ref newCompany);            
-            RepositoryClass.AddCompany(newCompany);
+            AssignEntityId(ref newCompany);
+            Repository.Repository.AddCompany(newCompany);
         }
 
         private void AssignEntityId(ref CompanyEntity newCompany)

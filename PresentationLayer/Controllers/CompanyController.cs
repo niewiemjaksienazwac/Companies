@@ -6,22 +6,21 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
-using Wcf = PresentationLayer.WcfServiceReference.WcfServiceClient;
+using CompanyService = PresentationLayer.WcfServiceReference.CompanyServiceClient;
 
 namespace PresentationLayer.Controllers
 {
     public class CompanyController : Controller
     {
-        Wcf _wcfService;
-
-        public CompanyController(Wcf wcfService)
+        CompanyService _companyService;
+        public CompanyController(CompanyService companyService)
         {
-            _wcfService = wcfService;
+            _companyService = companyService;
         }
 
         public ActionResult Index()
         {           
-            var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(_wcfService.GetCompaniesJson());
+            var companies = JsonConvert.DeserializeObject<List<CompanyModel>>(_companyService.GetCompaniesJson());
 
             return View(companies);
         }
@@ -35,12 +34,12 @@ namespace PresentationLayer.Controllers
         public ActionResult Create(CompanyModel company)
         {
             var companyJson = JsonConvert.SerializeObject(company);
-            var validationMessage = JsonConvert.DeserializeObject<ValidationModel>(_wcfService.ValidateCompany(companyJson));
+            var validationMessage = JsonConvert.DeserializeObject<ValidationModel>(_companyService.ValidateCompany(companyJson));
             TempData["showSaveButton"] = validationMessage.isValid;
 
             if (validationMessage.isValid && Request.Form["Save"] != null)
             {
-                _wcfService.SaveCompany(companyJson);
+                _companyService.SaveCompany(companyJson);
 
                 return RedirectToAction("Index");
             }
