@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesLayer", "ServicesLayer\ServicesLayer.csproj", "{CE831D09-9E74-4975-A3A6-CDA2FB616E4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{CE831D09-9E74-4975-A3A6-CDA2FB616E4C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DE036559-C038-43AA-BDD5-47458FCFBAF0} = {DE036559-C038-43AA-BDD5-47458FCFBAF0}
 		{EACC96F1-AC4B-480C-8489-9533996F7461} = {EACC96F1-AC4B-480C-8489-9533996F7461}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{EACC96F1-AC4B-480C-8489-9533996F7461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{EACC96F1-AC4B-480C-8489-9533996F7461}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{DE036559-C038-43AA-BDD5-47458FCFBAF0}"
 EndProject

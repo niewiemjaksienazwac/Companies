@@ -107,9 +107,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PresentationLayer\PresentationLayer.csproj">
+    <ProjectReference Include="..\Client\Client.csproj">
       <Project>{EACC96F1-AC4B-480C-8489-9533996F7461}</Project>
-      <Name>PresentationLayer</Name>
+      <Name>Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{DE036559-C038-43AA-BDD5-47458FCFBAF0}</Project>
